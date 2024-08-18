@@ -4,6 +4,8 @@
 
 **Solidus Gold** is a decentralized gold-backed token designed to mitigate institutional and systemic risks associated with traditional gold tokens. By backing Solidus Gold with a diversified pool of various gold tokens, we reduce the potential impact of adverse events on any single token, ensuring a more stable and resilient store of value.
 
+![SolidusGoldQuadratic](solidus-pool.png)
+
 ## Motivation
 
 In 1933, the United States enacted the Gold Reserve Act, making it illegal for citizens to own gold. This historical precedent highlights the risks that centralized regulations can pose to decentralized finance (DeFi) protocols that rely on gold-backed tokens. If gold tokens were to gain widespread use and were primarily based in the U.S., DeFi protocols would face significant risk from potential regulatory changes, undermining the timeless value of gold.
@@ -61,3 +63,5 @@ The integral is evaluated from the initial balance to the final balance after th
 ```
 
 Finally, this result is divided by the deposit amount to obtain the collateral percentage required for the deposit.
+
+![SolidusGoldQuadratic](solidus-quadratic.png)
