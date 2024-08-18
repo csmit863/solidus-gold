@@ -1,0 +1,171 @@
+
+    Relative Stability. Pegged/anchored or floating. 70% pegged, 30% floating
+    Stability Method. Governed or algorithmic.       70% governed, 30% algorithmic
+    Collateral Type. Endogenous or exogenous.        100% Exogenous 0% Endogenous
+
+HODL-ABLE GOLD
+
+Geographically decentralised Gold token
+Useful for defi
+*refer to Gold Reserve Act 1933
+It became illegal to own gold
+If you owned gold and it was a token backed by US gold, you would have no choice but to dump it.
+If you were a DeFi protocol utilizing US gold, you would be in a pickle.
+Manage through a DAO which can decide what reserves are to be made up of based on geopolitical situation.
+No currency, no central bank deciding the value, no stablecoins. Just pure metal.
+
+
+
+- 1:1 peg to gold
+- ability to adjust risk parameters via decentralised governance
+- decentralised governance acting in best interest of 1:1 peg
+- disperse & ideally remove regulatory risk inherent in gold tokens
+- maintain best characteristics of physical gold:
+    > Self custody
+    > No dilution
+    > No transaction fees
+    > Reliable
+- maintain best characteristics of digital gold:
+    > Divisibility
+    > Borderless
+    > Permissionless
+    > Concealable
+
+How to ??
+ - Dont reinvent the wheel: use the existing infrastructure that others
+   have built (Paxos, XAUT, PoR etc)
+ - Decentralised governance
+
+
+Technical specification:
+
+    fuzz testing
+
+
+Token inherits from ERC20 and Ownable
+18 decimal places (standard)
+
+Functions:
+    AddTokenAddress(token, supplyCap, minRiskParameter, maxRiskParameter, tokenDecimals)
+    RemoveTokenAddress(token)
+    ReduceTokenSupplyCap(token, amount)
+    IncreaseTokenSupplyCap(token, amount)
+    Deposit(from, token, depositAmount, mintAmount)
+    Redeem(from, token, amount)
+    AlterMinRiskParameter(token, newMinRiskParameter)
+    AlterMaxRiskParameter(token, newMaxRiskParameter)
+
+
+
+
+
+
+
+governance solution:
+Minting SG grants the user the ability to accrue voting tokens as soul-bound tokens
+This ensures:
+1. You cant just buy voting rights, you have to first own the gold to vote.
+2. Long-term users have more voting rights
+
+
+
+Solidus Gold supply CANNOT inflate more than the supply of gold in the pool. This would be dilution. 
+> supply will be controlled by overcollateralised mint function (deposit 2 GLD, receive 1 SGLD)
+Users deposit more gold tokens than they will receive in SG, for collateral, depending on the 
+risk perceived by the dao. 
+E.g. low risk gold token risk parameter: 110%  vs high risk gold token risk parameter: 150%
+in taking on risky gold tokens, DAO may charge interest rates or 
+use excess tokens for other purposes.
+
+Checklist: 
+
+functions:
+    [x] getTokenDetails();
+        - might get rid of this (can just call tokens[])
+    [x] addTokenAddress();
+    [ ] removeTokenAddress();
+        - need to add exchange functionality
+    [x] increaseTokenSupplyCap();
+    [ ] reduceTokenSupplyCap(); *
+    [x] alterMinRiskParameter();
+    [x] alterMaxRiskParameter();
+    [x] deposit();
+    [ ] redeem();
+
+
+TODO:
+    Design the DAO Governance:
+        Identify the categories of participants.
+        Determine the method of issuing voting rights.
+        Decide on the list of decisions to be made by the DAO.
+        Structure the procedure for proposals, voting, and implementing decisions.
+        Determine the structure of the DAO’s management bodies.
+
+    Develop Solidity Functions:
+        Functions for adjusting supply of tokens in the pool.
+        Functions for appending the list of tokens in the pool.
+
+    Implement Defense Mechanisms:
+        Sybil attack prevention.
+        Preventing a bad actor scenario with a large stake.
+        Define voting rights over time to encourage long-term participation.
+
+    Design Fee Structure:
+        Determine who will pay for the gas fees.
+        Implement a system for distributing gas fees proportionate to vote weight.
+        Explore possibilities for Layer 2 governance decisions to save on gas costs.
+
+    Expand DAO Use Cases:
+        Research possibilities to expand beyond gold (consider other precious metals).
+
+    Smart Contract Development:
+        Develop the SolidusGold contract with the defined functions.
+        Define events in the contract.
+        Develop a system to control the supply cap of tokens managed by the DAO.
+
+    Define Token Redemption Mechanism:
+        Plan for sudden large-scale redemptions of a specific token.
+        Implement withdrawal limits, buffer reserves, diversified reserves, and dynamic supply caps.
+
+    Cross-chain Bridge Exploration:
+        X    Research possibilities for users to bridge tokens to other chains.
+        Users can mint on mainnet and bridge to other chains
+
+    Prepare for Testing:
+        Plan for various test scenarios (both normal operation and edge cases).
+
+    Documentation:
+        Document the system design, contract functionality, DAO rules, and any other relevant 
+        information for users and developers.
+
+
+    Does governance require a governance token?
+    function of SG:
+    mint by depositing any valid pool token
+    redeem for any token in the pool and burn SG
+    //Justify the token:
+    This product needs a token because:
+        - a 'social contract' must be established so that the DAO ONLY adds GOLD tokens to the pool
+            e.g. someone not acting in the best interest of the DAO may simply buy a large amount of gold tokens,
+            deposit into the pool, redeem SG tokens and then change the pool distribution so that it suits the individual,
+            when the tokens may not be backed by gold, destroying the peg of SG.
+        - governance must be artificially centralised in the early days of the DAO so as to prevent the above
+          from happening.
+
+
+
+Users will be able to mint Solidus Gold by adding to the supply of tokens in the pool
+SolidusDAO will be able to add or remove token addresses from the pool
+SolidusDAO will be able to change the supply caps of tokens 
+    Changing the supply cap of tokens means tokens which have their supply cap reduced will be traded for
+    other tokens within the pool, so the total value of the reserve remains the same.
+
+    If a user deposits a token (a) and mints SG, then cannot redeem SG for token a later because it has
+    been removed from the pool, the user can still trade SG for token a on an exchange. SG still maintains
+    its peg to gold because it is still backed by other tokens which are redeemable for gold. The user can
+    still trade SG for token a and redeem for real gold locally because the token is still valid. If the token
+    is no longer valid, the user can hold onto SG until a new token backed by gold comes up in their area and
+    thus the user can then redeem their SG for real gold.
+
+
+
