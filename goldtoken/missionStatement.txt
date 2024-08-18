@@ -1,0 +1,267 @@
+Name: Solidus Gold
+
+Type: Financial/Token management
+
+Mission Statement: To facilitate and build a healthy DeFi
+economy which can incorporate gold as an asset with confidence.
+
+
+Solidus DAO
+~~~~~~~~~~
+Solidus DAO is committed to pioneering a more secure, resilient, 
+and decentralized monetary standard in the DeFi ecosystem. 
+
+Our mission is:
+
+    - To remove the reliance upon centralized institutions 
+      for token value,
+
+    We want, basically, for DeFi protocols to be able to hold large
+    reserves of GoldDAO token and be confident that its value stays true.
+
+    - To address the demand for a more reliable gold token in the DeFi ecosystem, 
+
+      we are introducing the Solidus Gold Token, built on the integrity of a 
+      geographically and geopolitically diversified gold reserve.
+
+    In order to accomplish this, a DAO will be created which will manage a pool of
+    gold-backed tokens. DAO members will vote on decisions by staking their own
+    personal supply of Solidus Gold, in order to ensure voters are acting in the
+    best interest of the token. 
+
+    By having a geographically, politically, and perhaps technologically decentralised
+    pool of gold token assets, token holders can be assured that the value will be
+    incredibly secure, more secure than any gold token currently in the DeFi ecosystem.
+
+    - To enhance the economic prosperity of blockchain systems by facilitating a 
+      decentralized, robust gold token that enables seamless, secure value exchange 
+      while minimizing vulnerability to regulatory changes and institutional risks.
+
+    By establishing GoldDAO Token, we hope to encourage the useage of this token, so as
+    to promote the development of DeFi and add increased economic security to the ecosystem.
+
+Our commitment is towards a decentralized, inclusive financial future that empowers all 
+participants with unparalleled security, autonomy, and reliability.
+DAO members will vote on decisions by staking their own
+personal supply of GoldDAO Token, in order to ensure voters are acting in the
+best interest of the token. 
+
+
+    Extended Lock-up on Voting: By extending the lock-up period of tokens for stakers who vote on a proposal, 
+    you discourage sudden changes in voting power. This also increases the staker's commitment to the 
+    consequences of their votes.
+
+    Increasing Voting Rights Over Time: This mechanism rewards long-term participation and encourages 
+    loyalty to the DAO. It can also help reduce the impact of short-term speculators on governance decisions.
+
+    Token Concentration for Increased Voting Power: This mechanism encourages larger stakeholders to 
+    be more involved in the DAO's governance. However, it might also centralize voting power to a few 
+    larger holders. This would discourage sybil attacks.
+
+    Lock-up Time Scales with Stake: A scaling lock-up time according to the size of the stake can ensure 
+    larger stakeholders are more committed. 
+
+    ~~~~~~~~~~~~~~~
+
+    1. identify the categories of participants of the Web3 ecosystem to whom governance rights will be vested, 
+    which requires defining the selection criteria for DAO members;
+      - token holders - the beneficiaries of the voting system
+      - voters (also token holders) - provide the benefits & stability to token holders
+      - token providers (mints etc) - compete to be in the pool of tokens (no voting rights)
+
+    2. determine the method of issuing voting rights to DAO members;
+      - voters must hold tokens for a determined period of time
+      - voters must act in the best interest of the holders
+
+    3. decide on the list of decisions that will be made by the DAO;
+      - adjusting supply of tokens in pool
+      - appending the list of tokens in the pool
+      (the supply of Solidus Gold will be directly correlated to the amount of supply in the pool)
+      (the DAO should not be able to inflate or dilute Solidus Gold, only acquire more)
+
+    4. structure the procedure for putting forward proposals, voting for them, as well as implementing the adopted decisions;
+      - Solidus Gold token holders are the only users who may become DAO members.
+      - Holders must stake their Solidus Gold in order to vote.
+      - The more SG a holder stakes, the longer their lock up period will be.
+      - If a staker votes on a proposal, their lock up time will be extended, proportionate to the amount of stake
+        they delegated to the vote.
+      - Stakers are encouraged to concentrate their stake into one account. 
+      - A Stakers voting rights will increase over time. 
+    5. determine the structure of the DAO’s management bodies, as well as the powers and responsibilities of each of them; 
+      - stakers: those who stake Solidus and vote on proposals
+    put all of the above into a DAO Constitution.
+
+**upgradeability of the contracts?
+  - https://p2pmodels.eu/what-happens-in-daos-when-gas-price-skyrockets/
+  - DAO activity is inelastic when gas fees increase
+
+NEW TOKENS::
+SolidusDAO sets supply cap on tokens
+Users can deposit tokens and mint new SG
+If supply cap is reached, users cannot deposit tokens
+Supply can only decrease if users redeem SG for tokens
+Supply cap is in place for risk management purposes
+^^^THIS IS A RISK TO THE VALUE OF SG, IF USERS APE OUT OF ONE TOKEN WHICH IS >1%, RISK TO VALUE OF SG
+^^no token should make up more than 15% of the reserves supply.
+  -solutions:
+    -withdrawal limits
+    -buffer reserves
+    -diversified reserves
+    -dynamic caps
+    -CDP?
+What if someone came in at the very beginning of the project, bought a ton of gold, minted SG,
+and then just made the supply cap of everything to be 100000000? - they would be locked into that decision
+
+The token is supposed to be backed by gold. It should not be a method of increasing profit. 
+
+They could also add random tokens
+which have nothing to do with gold. This means i may require a two-token model (SG & governance token)
+  - to prevent a bad actor from adding arbitrary tokens and setting arbitrary supply caps, a governance
+    token could be implemented in conjunction with the staking of Solidus Gold. This way, I can issue myself
+    100% of the governance token supply so that I can foster the healthy growth of the protocol.
+
+SolidusDAO & SolidusGold
+
+~~ SolidusDAO Constitution ~~
+
+Trust || Decentralization || Economic Prosperity
+
+1. Trust:
+DeFi protocols should be able to hold large reserves of 
+SolidusGold and be confident that its value stays true.
+
+2. Decentralization:
+SolidusDAO will manage a pool of gold-backed tokens, distributed
+geographically, politically, technologically or by any other means
+as seen fit by SolidusDAO, so as to mitigate any form of risk imposed
+by third party institutions issuing gold tokens.
+
+3. Economic Prosperity:
+By establishing SolidusGold, we hope to encourage the useage of this token, so as
+to promote the development of DeFi and add increased economic security to the ecosystem.
+
+
+
+AddToken TokenA:
+                address     sCap   minRP  maxRP
+addTokenAddress(0xc91..acd, 1000,  105,   170)
+getTokenSupply(0xc91..acd)
+---> 0
+
+getRiskParam(0xc91..acd)
+---> 105
+
+deposit(0xc91..acd, 100) 0xCallum
+---> mint 100/1.05
+     95.238095238 SG
+     // create equation to change riskParam
+     // exponential defined by minRP and maxRP
+     new riskParam: 120 (example num)
+
+getRiskParam(0xc91..acd)
+--->  120
+
+deposit(0xc91..acd, 100) 0xSteve
+---> mint 100/1.20
+     83.333333333 SG
+     new riskParam: 150
+
+deposit(0xc91..acd, 100) 0xCallum
+---> mint 100/1.5
+     66 2/3 SG
+     new riskParam: 160
+
+
+0xCallum balance: ~66+95 SG
+0xCallum collateral: 200 Token 0xc91..acd 
+
+0xSteve balance: ~83 SG
+0xSteve collateral: 100 Token 0xc91..acd 
+
+Circulating supply: 244
+Total Collateral: 300 Token 0xc91..acd 
+
+
+
+
+
+
+
+Token Example:
+tokenAddress: 0xTokenA
+balance: 0
+supplyCap: 1000
+riskParameter: 101
+minRiskParameter: 101
+maxRiskParameter: 150
+
+> 1. test case where balance is changed by +/-x
+> 2. test case where maxRiskParameter is changed by +/-x
+> 3. test case where minRiskParameter is changed by +/-x
+
+// what if someone deposits 1000 at RP 101?
+// must each individual token be indexed against the RP
+// and be recalculated for each token?
+
+EQUATION:
+y = current riskParam
+y = a(x-supplyCap)^2 + maxRiskParam
+
+a = (minRiskParam - maxRiskParam) / supplyCap^2
+
+new problem:
+determine when riskParam is recalculated
+
+riskParameter = 
+minRisk + (maxRisk - minRisk) * ((currentBalance + x) / supplyCap);
+
+
+calculate new riskParameter based on deposit size
+
+y = a(x + d - supplyCap)^2 + maxRiskParam
+
+
+
+
+
+what is my roadblock?
+
+the redemption mechanism.
+
+How does it work so far?
+
+
+There is an array of tokens which can be accepted into the pool.
+
+Each token has a min and max collateral requirement. The balance in the pool determines the collateral.
+The system is overcollateralised, to prevent a dilution of Solidus Gold in the event of dilution or failure 
+of one of the tokens. A fee is also collected to increase the pool size over time.
+
+A depositor will choose one of these tokens to deposit, and deposit the overcollateralised amount.
+
+Then, the depositor will mint an amount of Solidus Gold which is equal to the deposit amount minus the collateral.
+
+Solidus gold can be used like any other token, its value is simply backed by multiple gold tokens to ensure
+geographical fault tolerance and also acts as a proxy to prevent the other gold tokens from doing things such
+as revoking a user's tokens, CBDC style.
+
+If a user wants to redeem their Solidus Gold, they can call the redeem function and use the Solidus Gold amount
+and their chosen token to redeem to as input. 
+
+A user will redeem a 1:1 amount of Solidus Gold, with the amount of Solidus Gold to return as the input.
+
+
+
+SG reserve given 1 token is 50% value at different pool distributions and 10% extra
+1: 55%
+2: 82.5%
+3: 91.66%
+4: 96.25%
+5: 99%
+6: 100.83%
+
+Maybe an upfront fee + collateral?
+
+I.e deposit 110, mint 100, redeem 110, pay a fee of 1%?
+This way, as time goes on the reserves would gradually increase in size
+
